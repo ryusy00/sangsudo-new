@@ -1,0 +1,863 @@
+/* =========================
+   기본 폰트 / 레이아웃
+========================= */
+@font-face {font-family: 'Escoredream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff'); font-weight: 300; font-display: swap;}
+@font-face {font-family: 'Escoredream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff'); font-weight: normal; font-display: swap;}
+@font-face {font-family: 'Escoredream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff'); font-weight: 500; font-display: swap;}
+@font-face {font-family: 'Escoredream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff'); font-weight: 600; font-display: swap;}
+@font-face {font-family: 'Escoredream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff') format('woff'); font-weight: 700; font-display: swap;}
+@font-face {font-family: 'Escoredream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff') format('woff'); font-weight: 800; font-display: swap;}
+@font-face {font-family: 'Escoredream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff') format('woff'); font-weight: 900; font-display: swap;}
+body {
+    font-family:'Escoredream', sans-serif;
+    color: #111827;
+    background-color: #f5f7fb;
+    line-height: 1.6;
+}
+a {
+    text-decoration: none;
+}
+/* 섹션 공통 여백 */
+section {
+    scroll-margin-top: 80px;
+}
+/* =========================
+    헤더 / 네비게이션
+========================= */
+header.sticky-top {
+    box-shadow: 0 2px 8px rgba(15, 35, 95, 0.04);
+}
+.navbar-brand img {
+    height: 42px;
+}
+.navbar-nav {gap: 3rem;}
+.navbar-nav .nav-link {
+    position: relative;
+    font-weight: 500;
+    font-size: 1.15rem;
+    padding: 0.9rem 1.1rem;
+    color: #334155;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    color: #0d6efd;
+}
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 1.1rem;
+    right: 1.1rem;
+    bottom: 0.4rem;
+    height: 2px;
+    border-radius: 99px;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.1s ease-out;
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    transform: scaleX(1);
+}
+.btn-outline-primary {
+    border-radius: 999px;
+}
+/* =========================
+    상단 헤더 (로고 + 로그인)
+========================= */
+.top-header {
+    background-color: #ffffff;
+}
+.top-header .navbar-brand img {
+    height: 40px;
+}
+.nav-login-btn {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-weight: 500;
+}
+.nav-search-btn {
+    border-radius: 999px;
+    padding: 0.3rem 0.6rem;
+}
+/* =========================
+    하단 네비게이션 (GNB)
+========================= */
+.nav-wrapper {
+    background-color: #ffffff;
+}
+.main-navbar {
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+}
+/* GNB 메뉴 텍스트 */
+.main-gnb .nav-link {
+    padding: 0.55rem 1.3rem;
+    font-size: 1.1rem;
+    font-weight: 550;
+    color: #0f172a;
+    white-space: nowrap;
+}
+.main-gnb .nav-link:hover,
+.main-gnb .nav-link:focus {
+    color: #2563eb;
+}
+/* 스마트고객민원 바로가기 버튼 (우측 강조) */
+.smart-customer-link {
+    border-color: #ef4444;
+    color: #ef4444;
+    background-color: #ffffff;
+    font-weight: 500;
+    border-radius: 999px;
+}
+.smart-customer-link:hover {
+    background-color: #ef4444;
+    border-color: #ef4444;
+    color: #fff;
+}
+/* 모바일에서 네비 영역 정렬 */
+@media (max-width: 991.98px) {
+    .main-gnb .nav-link {
+        padding: 0.4rem 0.75rem;
+    }
+    .smart-customer-link {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    .main-navbar {
+        padding-bottom: 0.6rem;
+    }
+}
+/* 모바일(태블릿 이하) 상단 헤더 레이아웃 */
+@media (max-width: 991.98px) {
+    /* 로고/버튼을 위아래로 나누기 */
+    .top-header .container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    /* 버튼 묶음: 가로 전체 사용 + 줄바꿈 허용 */
+    .header-actions {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    /* 스마트고객민원 버튼: 맨 위, 가로 전체 */
+    .header-actions .smart-customer-link {
+        flex: 1 1 100%;
+        text-align: center;
+        justify-content: center;
+        margin-bottom: 0.25rem;
+    }
+
+    /* 로그인/검색 버튼: 그 아래 나란히 */
+    .header-actions .nav-login-btn {
+        flex: 1 1 calc(50% - 0.25rem);
+        text-align: center;
+    }
+
+    .header-actions .nav-search-btn {
+        flex: 0 0 auto;
+    }
+}
+
+/* 모바일에서 네비게이션 여백 */
+@media (max-width: 991.98px) {
+    .navbar-nav .nav-link {
+        padding-left: 0.5rem;
+    }
+}
+/* =========================
+    메인 비주얼 (#mainInfoCard)
+========================= */
+#mainInfoCard {
+    position: relative;
+    background: linear-gradient(135deg, #0d6efd 0%, #00a2ff 45%, #00c9b8 100%);
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+/* 부드러운 물결 느낌의 배경 */
+#mainInfoCard::after {
+    content: "";
+    position: absolute;
+    left: -20%;
+    right: -20%;
+    bottom: -120px;
+    height: 260px;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.25) 0, transparent 65%),
+        radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.2) 0, transparent 65%);
+    opacity: 0.7;
+}
+#mainInfoCard .container {
+    position: relative;
+    z-index: 1;
+}
+.display-5 {
+    font-weight: 700;
+}
+/* 상단 작은 배지 */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.16);
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+}
+/* 메인 CTA 버튼 */
+.btn-hero-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    background-color: #ffdd3c;
+    border: none;
+    color: #212529;
+    font-weight: 700;
+    padding: 0.9rem 1.8rem;
+    border-radius: 999px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    font-size: 0.98rem;
+}
+.btn-hero-primary:hover {
+    background-color: #ffe676;
+    color: #111827;
+}
+.btn-hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    background-color: rgba(5, 24, 63, 0.25);
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #f9fafb;
+    padding: 0.85rem 1.6rem;
+    font-size: 0.9rem;
+}
+.btn-hero-secondary:hover {
+    background-color: rgba(5, 24, 63, 0.4);
+    color: #ffffff;
+}
+/* 히어로 KPI 배지들 */
+.hero-kpi {
+    font-size: 0.82rem;
+}
+.hero-kpi-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background-color: rgba(15, 23, 42, 0.2);
+}
+/* 수질 카드 전체: 첫 번째 이미지 느낌 네이비 그라디언트 */
+.hero-water-card {
+    padding: 1.75rem 1.75rem 1.5rem;
+    border-radius: 1.5rem;
+    background: radial-gradient(circle at 0% 0%, #22d3ee 0, #0f5ccc 35%, #0c3e89 100%);
+    color: #e5f4ff;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.55);
+    position: relative;
+    overflow: hidden;
+}
+.hero-water-card::after {
+    content: "";
+    position: absolute;
+    right: -60px;
+    bottom: -60px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.6), transparent 70%);
+    opacity: 0.7;
+}
+.hero-chip-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.6);
+    font-size: 0.9rem;
+    color: #e5f4ff;
+}
+.hero-chip-label i {
+    font-size: 0.9rem;
+}
+.hero-chip-status {
+    padding: 0.25rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+    color: #022c22;
+}
+.hero-water-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+.hero-water-desc {
+    font-size: 0.9rem;
+    color: rgba(226, 239, 255, 0.85);
+}
+/* 정수장 탭 (두 번째 이미지 느낌) */
+.hero-plant-tabs .nav-link {
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+    font-size: 1rem;
+    color: #e0edff;
+    background-color: rgba(15, 23, 42, 0.35);
+    border: 1px solid transparent;
+    margin-right: 0.25rem;
+}
+.hero-plant-tabs .nav-link:hover {
+    color: #ffffff;
+    background-color: rgba(15, 23, 42, 0.6);
+}
+.hero-plant-tabs .nav-link.active {
+    color: #111827; 
+    font-weight: 500;
+    background-color: #ffffff;
+    border-color: rgba(15, 23, 42, 0.05);
+}
+
+/* KPI 뱃지 영역 (기존 스타일 기반) */
+.hero-kpi {
+    font-size: 1rem;
+}
+.hero-kpi-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    color: #e5f4ff;
+    backdrop-filter: blur(4px);
+}
+.hero-kpi-item i {
+    font-size: 0.9rem;
+}
+.hero-kpi-item strong {
+    font-weight: 600;
+    color: #f9fafb;
+}
+.hero-kpi-item-status {
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+    color: #052e16;
+    border-color: rgba(22, 163, 74, 0.6);
+}
+.hero-kpi-item-status strong {
+    color: #022c22;
+}
+/* 반응형: 너무 좁을 때는 카드 패딩 축소 */
+@media (max-width: 576px) {
+    .hero-water-card {
+        padding: 1.25rem 1.1rem 1.1rem;
+        border-radius: 1.1rem;
+    }
+    .hero-water-title {
+        font-size: 1.15rem;
+    }
+}
+
+/* 오른쪽 비주얼 카드 */
+.hero-visual {
+    position: relative;
+    background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.16) 0, transparent 55%),
+                linear-gradient(145deg, rgba(15, 23, 42, 0.75), rgba(15, 118, 250, 0.85));
+    color: #f9fafb;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+.hero-visual::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.8), transparent 70%);
+    right: -60px;
+    bottom: -80px;
+    opacity: 0.4;
+}
+.hero-visual-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    background-color: rgba(15, 23, 42, 0.75);
+    font-size: 0.78rem;
+}
+.hero-visual-main {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+/* 작은 막대 그래프 */
+.hero-visual-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+.hero-bar span {
+    display: block;
+    font-size: 0.78rem;
+    margin-bottom: 0.15rem;
+}
+.hero-bar small {
+    font-size: 0.75rem;
+    color: #cbd5f5;
+}
+.hero-bar-track {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background-color: rgba(148, 163, 184, 0.4);
+    overflow: hidden;
+}
+.hero-bar-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #38bdf8, #22c55e);
+}
+.hero-bar-fill-1 { width: 45%; }
+.hero-bar-fill-2 { width: 65%; }
+.hero-bar-fill-3 { width: 55%; }
+@media (max-width: 767.98px) {
+    #mainInfoCard {
+        padding-top: 3.2rem !important;
+        padding-bottom: 3rem !important;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    #mainInfoCard .display-5 {
+        font-size: 1.95rem;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        width: 100%;
+    }
+}
+/* =========================
+    자주 찾는 핵심 서비스
+========================= */
+.service-box {
+    transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, background-color 0.25s ease-out;
+    border-radius: 1.2rem;
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    color: #555;
+    font-size: 1rem;
+}
+.service-box i {
+    padding: 0.9rem;
+    border-radius: 999px;
+    font-size: 2.5rem;
+    background-color: #f1f5ff;
+}
+.service-box h4 { height: 80px; font-size: 1.25rem; font-weight: 500;}
+.service-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 35px rgba(15, 23, 42, 0.12);
+    background-color: #f9fafb;
+}
+.col {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.my-color2 {color: #2b2828 !important;}
+.my-color {color: #1244a5;}
+.my-navy {color: #e32424;}
+.text-secondary2 {color: #00bcc9;}
+.green { color: #1eb957;}
+.text-blue {color: #15b9f3 !important;}
+.list-group-item {padding: 1rem; cursor: pointer;}
+/* =========================
+    실시간 수돗물 현황 / 상수도 소식
+========================= */
+#status-section .card,
+#status-section .border.rounded-3.bg-light {
+    border-radius: 1.25rem;
+    border-color: #e2e8f0 !important;
+}
+#status-section h2 {
+    font-size: 1.35rem;
+}
+.nav-tabs .nav-link {
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: #64748b;
+    font-size: 1.1rem;
+}
+.nav-tabs .nav-link.active {
+    color: #0f172a;
+    font-weight: 600;
+    border-color: #0d6efd;
+}
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 1.05rem;
+}
+@media (max-width: 767.98px) {
+    .p-5 {
+        padding: 1rem !important;
+    }
+    .service-box {height: 260px;}
+}
+@media (max-width: 395px) {
+    .p-5 {
+        padding: 1.1rem !important;
+    }
+    .service-box {height: auto;}
+    .service-box h4 {
+        height: 80px;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+}
+@media (max-width: 395px) {
+    .service-box {height: auto;}
+    .service-box h4 {
+        height: 70px;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+}
+#newsBannerCarousel {
+    background-color: #f4f7ff;
+    border-radius: 1.25rem;
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.18);
+}
+#newsBannerCarousel .carousel-inner {
+    border-radius: 1.15rem;
+    overflow: hidden;
+}
+.news-banner-slide {
+    position: relative;
+}
+.news-banner-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+}
+.news-banner-caption {
+    position: absolute;
+    left: 1.8rem;
+    bottom: 1.6rem;
+    z-index: 2;
+    text-align: left;
+    color: #ffffff;
+}
+.news-banner-caption h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+.news-banner-caption p {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+.news-banner-btn {
+    border: 1px solid rgba(255,255,255,0.85);
+    color: #ffffff;
+    background-color: transparent;
+    font-size: 1rem;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+}
+.news-banner-btn:hover {
+    background-color: rgba(255,255,255,0.9);
+    color: #111827;
+}
+/* 인디케이터 점 – 카드 아래쪽 중앙 */
+#newsBannerCarousel .carousel-indicators {
+    bottom: -1.1rem;
+}
+#newsBannerCarousel .carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background-color: #cbd5f5;
+}
+#newsBannerCarousel .carousel-indicators .active {
+    width: 20px;
+    background-color: #3b82f6;
+}
+/* 화살표 버튼 – 둥근 반투명 버튼 */
+#newsBannerCarousel .carousel-control-prev,
+#newsBannerCarousel .carousel-control-next {
+    width: auto;
+}
+#newsBannerCarousel .carousel-control-prev-icon,
+#newsBannerCarousel .carousel-control-next-icon {
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 999px;
+    padding: 0.3rem;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25);
+    filter: none;
+}
+#newsBannerCarousel .carousel-control-prev-icon {
+    margin-left: 0.8rem;
+}
+#newsBannerCarousel .carousel-control-next-icon {
+    margin-right: 0.8rem;
+}
+
+/* 모바일에서는 텍스트/버튼 살짝 줄이기 */
+@media (max-width: 767.98px) {
+    .news-banner-caption {
+        left: 1.1rem;
+        bottom: 1.1rem;
+    }
+    .news-banner-caption h4 {
+        font-size: 0.95rem;
+    }
+    .news-banner-caption p {
+        font-size: 0.78rem;
+    }
+}
+
+/* =========================
+    스마트 물 사용 분석
+========================= */
+#smart-analysis {
+    background: radial-gradient(circle at 0 0, rgba(37, 99, 235, 0.06) 0, transparent 55%),
+                #ffffff;
+}
+#smart-analysis ul {
+    padding-left: 1.1rem;
+}
+#smart-analysis li {
+    margin-bottom: 0.35rem;
+}
+/* =========================
+    시민 참여 및 홍보 (캐러셀)
+========================= */
+#promoCarousel .carousel-inner {
+    border-radius: 1.25rem;
+}
+#promoCarousel .carousel-indicators [data-bs-target] {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background-color: #cbd5f5;
+}
+#promoCarousel .carousel-indicators .active {
+    width: 18px;
+    background-color: #0d6efd;
+}
+/* =========================
+   실시간 정수장 수질 우측 카드
+========================= */
+.live-text {
+    font-size: 1.1rem;
+}
+#water-quality {
+    background: radial-gradient(circle at 0 0,
+                rgba(37, 99, 235, 0.06) 0,
+                transparent 55%),
+                #f8fafc;
+}
+/* 오른쪽 카드 전체 묶음 */
+.water-contact-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+/* 공통 카드 기본 */
+.water-contact-card {
+    position: relative;
+    padding: 1.4rem 1rem;
+    color: #e5f4ff;
+    overflow: hidden;
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.22);
+}
+.water-contact-card .ms-3 {color: #0f172a}
+/* 대표전화 카드 배경 (네이비 계열) */
+.water-contact-main {
+    background: radial-gradient(circle at 0 0, rgb(255 255 255 / 40%) 0, transparent 55%), linear-gradient(145deg, #feffff, #daebf9);
+}
+/* 단수/공사 예고 카드 배경 (오렌지+레드 경고 느낌) */
+.water-contact-alert {
+    background: radial-gradient(circle at 0 0, rgb(77 210 252 / 35%) 0, transparent 55%), linear-gradient(145deg, #00c7c9, #164ff9);
+}
+/* 카드 안 라벨/텍스트 공통 */
+.water-contact-label {
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+.water-contact-number {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+.water-contact-sub {
+    font-size: 0.9rem;
+    color: #0f172a;
+}
+.water-contact-alert-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+}
+.water-contact-alert-meta {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.88);
+}
+.water-contact-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(15, 23, 42, 0.85);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.6);
+}
+.water-contact-icon i {
+    font-size: 1.1rem;
+}
+/* 버튼 */
+.water-contact-btn {
+    border-color: rgba(248, 250, 252, 0.75);
+    color: #f9fafb;
+    font-size: 0.85rem;
+}
+.water-contact-btn:hover {
+    background-color: rgba(248, 250, 252, 0.12);
+    color: #ffffff;
+}
+
+/* 반응형 – 모바일에서는 위아래 여유 */
+@media (max-width: 991.98px) {
+    #water-quality .col-lg-5 {
+        margin-top: 1.5rem;
+    }
+}
+
+/* =========================
+    기타 유틸
+========================= */
+.hover-shadow:hover {
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.2);
+}
+
+/* =========================
+   Footer 전체
+========================= */
+#site-footer {
+    font-size: 0.85rem;
+    margin-top: 3rem;
+}
+
+/* 대표전화 & 예고 알림 바 */
+.footer-callbar {
+    background: linear-gradient(135deg, #4b5563, #111827);
+    color: #f9fafb;
+    padding: 1.1rem 0;
+}
+
+.footer-call-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    background-color: rgba(15, 23, 42, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.footer-alert {
+    max-width: 420px;
+    color: #e5e7eb;
+}
+
+/* 로고/기관 정보 – 물결 느낌의 밝은 배경 */
+.footer-middle {
+    position: relative;
+    padding: 1.8rem 0 1.4rem;
+    background: linear-gradient(180deg, #e0f2ff 0%, #f9fbff 40%, #e5f2ff 100%);
+    border-top: 1px solid #e5e7eb;
+}
+
+.footer-middle::before {
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background: radial-gradient(circle at 0 0, #e0f2ff 0, transparent 60%),
+                radial-gradient(circle at 100% 0, #e0f2ff 0, transparent 60%);
+    opacity: 0.7;
+}
+
+.footer-logo-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: flex-end;
+}
+
+.footer-logo {
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    font-size: 0.78rem;
+    color: #4b5563;
+}
+
+/* 저작권 바 */
+.footer-bottom {
+    background-color: #111827;
+    color: #9ca3af;
+    padding: 0.9rem 0;
+}
+
+.footer-links a {
+    color: #e5e7eb;
+    margin-right: 0.75rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* 모바일에서 footer 여백 조정 */
+@media (max-width: 767.98px) {
+    .footer-callbar .container {
+        align-items: flex-start;
+    }
+    .footer-alert {
+        text-align: left;
+    }
+    .footer-logo-row {
+        justify-content: flex-start;
+    }
+}
+/* @media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1400px;
+    }
+} */
