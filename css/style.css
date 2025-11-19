@@ -30,7 +30,7 @@ header.sticky-top {
 .navbar-brand img {
     height: 42px;
 }
-.navbar-nav {gap: 3rem;}
+.navbar-nav {gap: 3.2rem; padding-top: 0.7rem; padding-bottom: 0.7rem;}
 .navbar-nav .nav-link {
     position: relative;
     font-weight: 500;
@@ -314,7 +314,7 @@ header.sticky-top {
 .hero-plant-tabs .nav-link {
     border-radius: 999px;
     padding: 0.35rem 0.9rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #e0edff;
     background-color: rgba(15, 23, 42, 0.35);
     border: 1px solid transparent;
@@ -333,7 +333,7 @@ header.sticky-top {
 
 /* KPI 뱃지 영역 (기존 스타일 기반) */
 .hero-kpi {
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 .hero-kpi-item {
     display: inline-flex;
@@ -436,6 +436,31 @@ header.sticky-top {
 .hero-bar-fill-1 { width: 45%; }
 .hero-bar-fill-2 { width: 65%; }
 .hero-bar-fill-3 { width: 55%; }
+/* 카드 하단 – 실시간 정수장 수질 설명 영역 */
+.hero-water-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: 0.75rem;
+}
+
+.hero-water-note {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(226, 232, 240, 0.9); /* 밝은 회색-블루 */
+}
+
+/* 작은 버튼 톤 맞추기 */
+.hero-water-link {
+    white-space: nowrap;
+    border-color: rgba(248, 250, 252, 0.7);
+    color: #e5e7eb;
+}
+
+.hero-water-link:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+    background-color: rgba(15, 23, 42, 0.25);
+}
+
 @media (max-width: 767.98px) {
     #mainInfoCard {
         padding-top: 3.2rem !important;
@@ -467,10 +492,10 @@ header.sticky-top {
 .service-box i {
     padding: 0.9rem;
     border-radius: 999px;
-    font-size: 2.5rem;
+    font-size: 2rem;
     background-color: #f1f5ff;
 }
-.service-box h4 { height: 80px; font-size: 1.25rem; font-weight: 500;}
+.service-box h4 { height: 67px; font-size: 1.1rem; font-weight: 500;}
 .service-box:hover {
     transform: translateY(-4px);
     box-shadow: 0 16px 35px rgba(15, 23, 42, 0.12);
@@ -480,6 +505,7 @@ header.sticky-top {
     padding-left: 5px;
     padding-right: 5px;
 }
+.shadow-sm {box-shadow: 1px 2px 10px rgba(0,0,0,0.2) !important;}
 .my-color2 {color: #2b2828 !important;}
 .my-color {color: #1244a5;}
 .my-navy {color: #e32424;}
@@ -771,7 +797,7 @@ header.sticky-top {
 
 /* 대표전화 & 예고 알림 바 */
 .footer-callbar {
-    background: linear-gradient(135deg, #4b5563, #111827);
+    background: linear-gradient(135deg, #00bad2, #087efd);
     color: #f9fafb;
     padding: 1.1rem 0;
 }
@@ -780,11 +806,12 @@ header.sticky-top {
     width: 48px;
     height: 48px;
     border-radius: 999px;
-    background-color: rgba(15, 23, 42, 0.6);
+    background-color: #eef5fb;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.4rem;
+    color: #03a1e3;
 }
 
 .footer-alert {
