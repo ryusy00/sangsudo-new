@@ -74,7 +74,7 @@
         <div class="container">
             <div class="row align-items-center gy-4">
                 <!-- 왼쪽 : 텍스트 영역 -->
-                <div class="col-lg-7 text-center text-lg-start">
+                <div class="col-lg-6 text-center text-lg-start">
                     <span class="hero-badge">
                         <i class="fa-solid fa-mobile-screen-button me-1"></i> 모바일에서도 동일 서비스
                     </span>
@@ -99,22 +99,19 @@
                     </div>
                 </div>
                 <!-- 수질 카드 전체 박스 -->
-                <div class="col-lg-5 hero-water-card mt-4">
+                <div class="col-lg-6 hero-water-card mt-4">
                     <!-- 상단 타이틀 영역 -->
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <div class="hero-chip-label">
                             <i class="fa-solid fa-gauge"></i>
-                            실시간 수돗물 지표
+                            실시간 정수장 수질
                         </div>
                         <div class="hero-chip-status">
                             매우 좋음
                         </div>
                     </div>
 
-                    <h3 class="hero-water-title mb-1">오늘의 상수도 현황</h3>
-                    <p class="hero-water-desc mb-3">
-                        정수장 수질 기준을 안정적으로 만족하고 있습니다.
-                    </p>
+                    <h3 class="hero-water-title mb-1" style="margin-bottom: 0.5rem !important;">오늘의 상수도 현황</h3>
 
                     <!-- 정수장 탭 -->
                     <ul class="nav nav-pills hero-plant-tabs mb-3" id="plantTabs" role="tablist">
@@ -245,6 +242,19 @@
                         </div>
 
                     </div><!-- /.tab-content -->
+                    <!-- ▼ 실시간 정수장 수질 설명 + 바로가기 (새로 추가) -->
+                    <div class="hero-water-footer d-flex flex-column flex-md-row
+                                justify-content-between align-items-start align-items-md-center
+                                gap-2 mt-3">
+                        <p class="hero-water-note mb-0">
+                            실시간 정수장 수질은 덕남·용연 정수장 등 주요 정수장의 pH, 탁도,
+                            잔류 염소 등을 기준으로 산정한 수질 지표입니다.
+                        </p>
+                        <a href="#"
+                        class="btn btn-sm btn-outline-light rounded-pill px-3 hero-water-link">
+                        실시간 정수장 수질 바로가기
+                        </a>
+                    </div>
                 </div><!-- /.hero-water-card -->
 
             </div>
@@ -421,73 +431,25 @@
         </div>
     </section>
 
-    <!-- 실시간 정수장 수질 -->
-    <section id="water-quality" class="py-5">
-        <div class="container">
-            <div class="row g-4 align-items-stretch">
-                <!-- 좌측: 실시간 정수장 수질 -->
-                <div class="col-lg-6" style="padding-right: 2rem;">
-                    <h4 class="mb-3 fw-bold">
-                        <i class="fa-solid fa-droplet text-primary me-3"></i>실시간 정수장 수질
-                    </h4>
-                    <p class="text-muted mb-3 live-text">
-                        먹는 물은 시민의 건강을 보존·증진하는 생명의 원천입니다.
-                        광주광역시 상수도사업본부는 정수장 수질을 철저히 관리하여
-                        안심하고 마실 수 있는 수돗물을 공급하기 위해 노력하고 있습니다.
-                    </p>
-                    <p class="fw-semibold mb-2">
-                        현재 정수장 수질 상태&nbsp;
-                        <span class="badge bg-success rounded-pill">적합</span>
-                    </p>
-
-                    <a href="#" class="btn btn-primary btn-lg mt-2 hover-shadow" style="width: 100%;">
-                        실시간 정수장 수질 바로가기
-                    </a>
+    <div class="footer-callbar">
+        <div class="container d-flex flex-wrap align-items-center gap-3">
+            <!-- 왼쪽: 대표전화 -->
+            <div class="d-flex align-items-center gap-3">
+                <div class="footer-call-icon">
+                    <i class="fa-solid fa-phone-volume"></i>
                 </div>
-                <!-- 우측: 대표전화 + 단수 예고 알림 -->
-                <div class="col-lg-6">
-                    <div class="water-contact-stack">
-                    <!-- 단수/공사 예고 카드 -->
-                    <div class="water-contact-card rounded-4 water-contact-alert">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                                <div class="water-contact-label">
-                                    <i class="fa-solid fa-triangle-exclamation me-1"></i>
-                                    단수 · 공사 예고
-                                </div>
-                                <span class="badge bg-light text-primary small px-3 rounded-pill">
-                                    오늘
-                                </span>
-                            </div>
-
-                            <p class="water-contact-alert-text mb-1">
-                                북구 풍향동 765번지 일원 <strong>단수 예정</strong>
-                            </p>
-                            <p class="water-contact-alert-meta mb-3">
-                                2025-02-04(화) · 09:00 ~ 18:00
-                            </p>
-                            <!-- <a href="#" class="btn btn-sm btn-outline-light rounded-pill px-3 water-contact-btn">자세히 보기</a> -->
-                            <!-- 대표전화 카드 -->
-                            <div class="water-contact-card rounded-4 water-contact-main" style="margin-top: 1rem; padding: 0.7rem 1rem;">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="water-contact-icon">
-                                        <i class="fa-solid fa-phone-volume"></i>
-                                    </div>
-                                    <div class="ms-3">
-                                        <div class="water-contact-label">대표전화</div>
-                                        <div class="water-contact-number">062-609-6000</div>
-                                    </div>
-                                </div>
-                                <p class="water-contact-sub mb-1">평일 09:00~18:00 대표 상담 운영</p>
-                            </div>
-                        </div>
-                    </div><!-- /.water-contact-stack -->
+                <div>
+                    <div class="fw-semibold">대표전화 062-609-6000</div>
+                    <div class="small">평일 09:00~18:00 대표 상담 운영</div>
                 </div>
-                
+            </div>
+
+            <!-- 오른쪽: 단수/공사 예고 요약 -->
+            <div class="ms-auto footer-alert small">
+                북구 풍향동 765번지 일원 단수 예정 (2025-02-04, 09:00~18:00)
             </div>
         </div>
-    </section>
-
-    
+    </div>
     <!-- 푸터 -->
     <footer id="site-footer" class="mt-5">
         <!-- 로고/기관 정보 (물결 배경 느낌) -->
